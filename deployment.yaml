@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+  labels:
+    app: django-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+      - name: jatin-django-app
+        image: arorajatin0310/jatinarora-image
+        ports:
+        - containerPort: 8000
