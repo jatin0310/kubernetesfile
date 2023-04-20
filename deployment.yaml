@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django
-  labels:
-    app: django-app
+  name: simple-app-deployment
+  namespace: ingress-nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: django-app
+      app: simple-app
   template:
     metadata:
       labels:
-        app: django-app
+        app: simple-app
     spec:
       containers:
-      - name: jatin-django-app
-        image: arorajatin0310/jatinarora-image
+      - name: djangodeployment
+        image: arorajatin0310/jatinimg
         ports:
         - containerPort: 8000
